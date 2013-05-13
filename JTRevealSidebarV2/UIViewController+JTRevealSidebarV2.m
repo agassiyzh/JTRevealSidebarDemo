@@ -10,6 +10,7 @@
 #import "UINavigationItem+JTRevealSidebarV2.h"
 #import "JTRevealSidebarV2Delegate.h"
 #import <objc/runtime.h>
+#import <XYOrigami/UIView+Origami.h>
 
 @interface UIViewController (JTRevealSidebarV2Private)
 
@@ -150,28 +151,22 @@ static char *revealedStateKey;
 
     UIView *revealedView = [delegate viewForLeftSidebar];
     revealedView.tag = SIDEBAR_VIEW_TAG;
-    CGFloat width = CGRectGetWidth(revealedView.frame);
 
     if (showLeftSidebar) {
-        [self.view.superview insertSubview:revealedView belowSubview:self.view];
+      [self.view showOrigamiTransitionWith:revealedView NumberOfFolds:2 Duration:0.25f
+                                 Direction:XYOrigamiDirectionFromLeft completion:^(BOOL finished) {
         
-        [UIView beginAnimations:@"" context:nil];
-//        self.view.transform = CGAffineTransformTranslate([self baseTransform], width, 0);
-        
-        self.view.frame = CGRectOffset(self.view.frame, width, 0);
-
+      }];
     } else {
-        [UIView beginAnimations:@"hideSidebarView" context:(void *)SIDEBAR_VIEW_TAG];
-//        self.view.transform = CGAffineTransformTranslate([self baseTransform], -width, 0);
+      [self.view hideOrigamiTransitionWith:revealedView NumberOfFolds:2 Duration:0.25f Direction:XYOrigamiDirectionFromLeft completion:^(BOOL finished) {
         
-        self.view.frame = CGRectOffset(self.view.frame, -width, 0);
+      }];
     }
     
     [UIView setAnimationDidStopSelector:@selector(animationDidStop2:finished:context:)];
     [UIView setAnimationDelegate:self];
     
     NSLog(@"%@", NSStringFromCGAffineTransform(self.view.transform));
-
 
     [UIView commitAnimations];
 }
@@ -186,21 +181,16 @@ static char *revealedStateKey;
 
     UIView *revealedView = [delegate viewForRightSidebar];
     revealedView.tag = SIDEBAR_VIEW_TAG;
-    CGFloat width = CGRectGetWidth(revealedView.frame);
-    revealedView.frame = (CGRect){self.view.frame.size.width - width, revealedView.frame.origin.y, revealedView.frame.size};
-
-    if (showRightSidebar) {
-        [self.view.superview insertSubview:revealedView belowSubview:self.view];
-
-        [UIView beginAnimations:@"" context:nil];
-//        self.view.transform = CGAffineTransformTranslate([self baseTransform], -width, 0);
-        
-        self.view.frame = CGRectOffset(self.view.frame, -width, 0);
-    } else {
-        [UIView beginAnimations:@"hideSidebarView" context:(void *)SIDEBAR_VIEW_TAG];
-//        self.view.transform = CGAffineTransformTranslate([self baseTransform], width, 0);
-        self.view.frame = CGRectOffset(self.view.frame, width, 0);
-    }
+  if (showRightSidebar) {
+    [self.view showOrigamiTransitionWith:revealedView NumberOfFolds:2 Duration:0.25f
+                               Direction:XYOrigamiDirectionFromRight completion:^(BOOL finished) {
+                                 
+                               }];
+  } else {
+    [self.view hideOrigamiTransitionWith:revealedView NumberOfFolds:2 Duration:0.25f Direction:XYOrigamiDirectionFromRight completion:^(BOOL finished) {
+      
+    }];
+  }
     
     [UIView setAnimationDidStopSelector:@selector(animationDidStop2:finished:context:)];
     [UIView setAnimationDelegate:self];

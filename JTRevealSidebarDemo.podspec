@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'JTRevealSidebarV2/*.{h,m}'
   s.frameworks = 'QuartzCore'
   s.requires_arc = true
+  s.dependency 'XYOrigami'
 end

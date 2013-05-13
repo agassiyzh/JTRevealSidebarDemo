@@ -62,6 +62,8 @@
 		37E67F5115910A8800043822 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD4708514446391002EE1B0 /* UIKit.framework */; };
 		37E67F5215910AE200043822 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD4708914446392002EE1B0 /* CoreGraphics.framework */; };
 		37E67F5415910B6E00043822 /* JTRevealSidebar-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 37E67F5315910B6E00043822 /* JTRevealSidebar-Prefix.pch */; };
+		5C526154C7EE4955B4F77D7B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BB81363596493C8D7AFA14 /* libPods.a */; };
+		F88786C11740CC7000ABB513 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F88786C01740CC7000ABB513 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,9 +155,12 @@
 		1AE7FCB7144F461C0050B97E /* JTTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTTableViewCellFactory.m; sourceTree = "<group>"; };
 		1AE7FCB9144F4BAD0050B97E /* JTTableViewCellModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTTableViewCellModal.h; sourceTree = "<group>"; };
 		1AE7FCBA144F4BAD0050B97E /* JTTableViewCellModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTTableViewCellModal.m; sourceTree = "<group>"; };
+		1DF768C100E947FBAF41895A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		37E67F201591080200043822 /* libJTRevealSidebarV2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJTRevealSidebarV2.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E67F37159109C500043822 /* libJTRevealSidebar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJTRevealSidebar.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E67F5315910B6E00043822 /* JTRevealSidebar-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JTRevealSidebar-Prefix.pch"; sourceTree = "<group>"; };
+		63BB81363596493C8D7AFA14 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F88786C01740CC7000ABB513 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPods.a; path = "Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F88786C11740CC7000ABB513 /* libPods.a in Frameworks */,
 				37E67F30159108A900043822 /* libJTRevealSidebarV2.a in Frameworks */,
 				1A0883FC14D6FEB500628D99 /* QuartzCore.framework in Frameworks */,
 				1A617E8D148FC4A6005EC465 /* UIKit.framework in Frameworks */,
@@ -217,6 +223,7 @@
 				37E67F5215910AE200043822 /* CoreGraphics.framework in Frameworks */,
 				37E67F5115910A8800043822 /* UIKit.framework in Frameworks */,
 				37E67F38159109C500043822 /* Foundation.framework in Frameworks */,
+				5C526154C7EE4955B4F77D7B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +293,7 @@
 		1AD4707614446391002EE1B0 = {
 			isa = PBXGroup;
 			children = (
+				F88786C01740CC7000ABB513 /* libPods.a */,
 				1AD470BD144463B4002EE1B0 /* JTRevealSidebar */,
 				1AD4708B14446392002EE1B0 /* JTRevealSidebarDemo */,
 				1AD470AC14446392002EE1B0 /* JTRevealSidebarDemoTests */,
@@ -294,6 +302,7 @@
 				1A617EA7148FC4A7005EC465 /* JTRevealSidebarDemoV2Tests */,
 				1AD4708414446391002EE1B0 /* Frameworks */,
 				1AD4708214446391002EE1B0 /* Products */,
+				1DF768C100E947FBAF41895A /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -318,6 +327,7 @@
 				1AD4708714446391002EE1B0 /* Foundation.framework */,
 				1AD4708914446392002EE1B0 /* CoreGraphics.framework */,
 				1AD470A614446392002EE1B0 /* SenTestingKit.framework */,
+				63BB81363596493C8D7AFA14 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -510,9 +520,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37E67F3F159109C500043822 /* Build configuration list for PBXNativeTarget "JTRevealSidebar" */;
 			buildPhases = (
+				4686EF28BC3840488868901F /* Check Pods Manifest.lock */,
 				37E67F33159109C500043822 /* Sources */,
 				37E67F34159109C500043822 /* Frameworks */,
 				37E67F35159109C500043822 /* Headers */,
+				55213250FA3046848E768476 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -618,6 +630,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		4686EF28BC3840488868901F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		55213250FA3046848E768476 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -761,6 +801,7 @@
 /* Begin XCBuildConfiguration section */
 		1A617EB0148FC4A7005EC465 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -775,6 +816,7 @@
 		};
 		1A617EB1148FC4A7005EC465 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -789,6 +831,7 @@
 		};
 		1A617EB2148FC4A7005EC465 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JTRevealSidebarDemoV2.app/JTRevealSidebarDemoV2";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -808,6 +851,7 @@
 		};
 		1A617EB3148FC4A7005EC465 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JTRevealSidebarDemoV2.app/JTRevealSidebarDemoV2";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -827,6 +871,7 @@
 		};
 		1AD470B514446392002EE1B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -852,6 +897,7 @@
 		};
 		1AD470B614446392002EE1B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -872,6 +918,7 @@
 		};
 		1AD470B814446392002EE1B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "JTRevealSidebarDemo/JTRevealSidebarDemo-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
@@ -882,6 +929,7 @@
 		};
 		1AD470B914446392002EE1B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "JTRevealSidebarDemo/JTRevealSidebarDemo-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
@@ -892,6 +940,7 @@
 		};
 		1AD470BB14446392002EE1B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JTRevealSidebarDemo.app/JTRevealSidebarDemo";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -909,6 +958,7 @@
 		};
 		1AD470BC14446392002EE1B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JTRevealSidebarDemo.app/JTRevealSidebarDemo";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -926,6 +976,7 @@
 		};
 		37E67F291591080200043822 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/JTRevealSidebarV2.dst;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -939,6 +990,7 @@
 		};
 		37E67F2A1591080200043822 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/JTRevealSidebarV2.dst;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -952,6 +1004,7 @@
 		};
 		37E67F40159109C500043822 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/JTRevealSidebar.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -967,6 +1020,7 @@
 		};
 		37E67F41159109C500043822 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DF768C100E947FBAF41895A /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/JTRevealSidebar.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
