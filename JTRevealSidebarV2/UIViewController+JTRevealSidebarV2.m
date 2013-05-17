@@ -37,6 +37,7 @@ static char *revealedStateKey;
         [delegate willChangeRevealedStateForViewController:self];
     }
 
+
     objc_setAssociatedObject(self, &revealedStateKey, [NSNumber numberWithInt:revealedState], OBJC_ASSOCIATION_RETAIN);
 
     switch (currentState) {
@@ -155,20 +156,20 @@ static char *revealedStateKey;
     if (showLeftSidebar) {
       [self.view showOrigamiTransitionWith:revealedView NumberOfFolds:2 Duration:0.25f
                                  Direction:XYOrigamiDirectionFromLeft completion:^(BOOL finished) {
-        
+        [self animationDidStop2:@"" finished:@(finished) context:nil];
       }];
     } else {
       [self.view hideOrigamiTransitionWith:revealedView NumberOfFolds:2 Duration:0.25f Direction:XYOrigamiDirectionFromLeft completion:^(BOOL finished) {
-        
+        [self animationDidStop2:@"hideSidebarView" finished:@(finished) context:(void *) SIDEBAR_VIEW_TAG];
       }];
     }
     
-    [UIView setAnimationDidStopSelector:@selector(animationDidStop2:finished:context:)];
-    [UIView setAnimationDelegate:self];
-    
-    NSLog(@"%@", NSStringFromCGAffineTransform(self.view.transform));
-
-    [UIView commitAnimations];
+//    [UIView setAnimationDidStopSelector:@selector(animationDidStop2:finished:context:)];
+//    [UIView setAnimationDelegate:self];
+//
+//    NSLog(@"%@", NSStringFromCGAffineTransform(self.view.transform));
+//
+//    [UIView commitAnimations];
 }
 
 - (void)revealRightSidebar:(BOOL)showRightSidebar {
@@ -181,23 +182,19 @@ static char *revealedStateKey;
 
     UIView *revealedView = [delegate viewForRightSidebar];
     revealedView.tag = SIDEBAR_VIEW_TAG;
+
+
   if (showRightSidebar) {
     [self.view showOrigamiTransitionWith:revealedView NumberOfFolds:2 Duration:0.25f
                                Direction:XYOrigamiDirectionFromRight completion:^(BOOL finished) {
-                                 
-                               }];
+      [self animationDidStop2:@"" finished:@(finished) context:nil];
+    }];
   } else {
     [self.view hideOrigamiTransitionWith:revealedView NumberOfFolds:2 Duration:0.25f Direction:XYOrigamiDirectionFromRight completion:^(BOOL finished) {
-      
+      [self animationDidStop2:@"hideSidebarView" finished:@(finished) context:(void *) SIDEBAR_VIEW_TAG];
     }];
   }
-    
-    [UIView setAnimationDidStopSelector:@selector(animationDidStop2:finished:context:)];
-    [UIView setAnimationDelegate:self];
 
-    NSLog(@"%@", NSStringFromCGAffineTransform(self.view.transform));
-    
-    [UIView commitAnimations];
 }
 
 @end
